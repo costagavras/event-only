@@ -1,1 +1,74 @@
-example@form page
+<form class="new_job_application" id="new_job_application" action="/job_applications" accept-charset="UTF-8" method="post">
+  <p>
+    <label for="job_application_full_name">Full name</label>
+    <input type="text" name="job_application[full_name]" id="job_application_full_name" />
+  </p>
+
+  <p>
+    <label for="job_application_phone">Phone</label>
+    <input type="tel" name="job_application[phone]" id="job_application_phone" />
+  </p>
+
+  <p>
+    <label for="job_application_hobby">Hobby</label>
+    <input type="text" name="job_application[hobby]" id="job_application_hobby" />
+  </p>
+
+  <p>
+    <label for="job_application_years_experience">Years experience</label>
+    <input type="number" name="job_application[years_experience]" id="job_application_years_experience" />
+  </p>
+
+  <p>
+    <label for="job_application_available_date">Available date</label>
+    <input type="date" name="job_application[available_date]" id="job_application_available_date" />
+  </p>
+
+  <p>
+    <input type="submit" name="commit" value="Create Job application" />
+  </p>
+</form>
+
+<hr>
+
+<h2>Form_tag</h2>
+
+<!-- The form_tag helper accepts 2 arguments: the path for the action and an options hash. -->
+<%= form_tag('/job_applications', method: 'post') do %>
+
+  <p>
+    <%= label_tag(:full_name, "Full name:") %>
+    <%= text_field_tag :full_name %>
+  </p>
+
+  <p>
+    <%= label_tag(:phone, "Phone:") %>
+    <%= number_field_tag :phone %>
+  </p>
+
+  <p>
+    <%= label_tag(:hobby, "Hobby:") %>
+    <%= text_field_tag :hobby %>
+  </p>
+
+  <p>
+    <%= label_tag(:years_experience, "Years of experience:") %>
+    <%= number_field_tag :years_experience %>
+  </p>
+
+  <p>
+    <%= label_tag(:available_date, "Date available:") %>
+    <%= date_field_tag :available_date %>
+  </p>
+
+  <p>
+    <%= submit_tag 'Create Job Application' %>
+  </p>
+<% end %>
+
+<hr>
+
+<h2>Form_for</h2>
+
+<!-- @new_job_application to be defined in the ApplicationsController -->
+<%= render 'form', job_application: @job_application %>
