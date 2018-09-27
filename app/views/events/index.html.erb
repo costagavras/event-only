@@ -1,1 +1,7 @@
-events#index page
+<h1>All the events are found below:</h1>
+<hr>
+<h2><%=link_to 'New event', new_event_path %></h2>
+<hr>
+<% @events.each do |each_event| %>
+  <%= render 'single_event', event: each_event %>
+<%end%>

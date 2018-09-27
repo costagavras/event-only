@@ -1,1 +1,6 @@
-events#new page
+<h1>New event</h1>
+<hr>
+<h2><%=link_to 'All events', events_path %></h2>
+<hr>
+
+<%= render 'event_form', event: @event %>
